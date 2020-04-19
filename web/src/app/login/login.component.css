@@ -1,0 +1,30 @@
+.formDivStyle{
+  float: right;
+  margin-top: 13em;
+  margin-right: 26em;
+}
+.loginImageStyle{
+  width: 85em;
+  height: 47em;
+
+}
+
+.boxStyle{
+  border-radius: 25px;
+  /*width: 200px;*/
+  height: 311px;
+  width:27em;
+  padding: 2rem 1rem 1rem 1.5rem;
+  opacity: 1;
+  /* fallback for old browsers */
+
+  background: -webkit-linear-gradient(to left, #82e0d6, #487975c9); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #82e0d6, #487975c9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-box-shadow: 1px 0px 9px 0px rgba(105, 94, 105, 0.33);
+  -moz-box-shadow: 1px 0px 9px 0px rgba(105, 94, 105, 0.33);
+  box-shadow: 1px 0px 9px 0px rgba(105, 94, 105, 0.33);
+}
+
+.headingTextColor{
+  color: white
+}

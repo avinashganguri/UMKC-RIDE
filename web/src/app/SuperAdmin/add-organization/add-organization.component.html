@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="font-weight-bold text-uppercase">Add Organization</h4>
+      <form>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" class="form-control" name="name" placeholder="Organization Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <textarea class="form-control" name="address" placeholder="Address" rows="3" [(ngModel)]="address" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text">Organization Type</label>
+        </div>
+        <select class="custom-select" name="type" [(ngModel)]="type" [ngModelOptions]="{standalone: true}">
+          <option selected>Choose...</option>
+          <option value="College">College</option>
+          <option value="Hotel">Hotel</option>
+          <option value="Theme Parks">Theme Parks</option>
+          <option value="Car Dealers">Car Dealers</option>
+          <option value="Airports">Airports</option>
+        </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="addPatronUser()">Save</button>
+      </form>
+    </div>
+    <div class="col-md-8 table-responsive" style="height: fit-content;">
+      <h4 class="font-weight-bold text-uppercase">Organizations List</h4>
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Oranization Type</th>
+          <th scope="col">Organization Name</th>
+          <th scope="col">Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of accountDetails">
+          <td>{{data.type}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.address}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

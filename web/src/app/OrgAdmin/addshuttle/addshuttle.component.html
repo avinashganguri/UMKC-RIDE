@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="font-weight-bold text-uppercase">Add Shuttle</h4>
+      <form>
+        <div class="form-group">
+          <label>Shuttle Name:</label>
+          <input type="text" class="form-control" name="sname" placeholder="Shuttle Name" [(ngModel)]="sname" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label>Location:</label>
+          <input type="text" class="form-control" name="location" placeholder="Location" [(ngModel)]="location" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <div class="form-group">
+            <label>Current Location</label>
+            <input type="email" class="form-control" name="currentlocation" placeholder="Current Location" [(ngModel)]="currentlocation" [ngModelOptions]="{standalone: true}">
+          </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addShuttle()">Save</button>
+      </form>
+    </div>
+    <div class="col-md-8 table-responsive" style="height: fit-content;">
+      <h4 class="font-weight-bold text-uppercase">Shuttles List</h4>
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Shuttle Name</th>
+          <th scope="col">Location</th>
+          <th scope="col">Current Location</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of ShuttlesDetails">
+          <td>{{data.sname}}</td>
+          <td>{{data.location}}</td>
+          <td>{{data.currentlocation}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

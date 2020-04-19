@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="font-weight-bold text-uppercase">Add Driver</h4>
+      <form>
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" class="form-control" name="Firstname" placeholder="Name" [(ngModel)]="Firstname" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" class="form-control" name="Lastname" placeholder="Name" [(ngModel)]="Lastname" [ngModelOptions]="{standalone: true}">
+        </div>
+        <!--<div class="input-group mb-3">-->
+        <!--<div class="input-group-prepend">-->
+        <!--<label class="input-group-text">Organization Type</label>-->
+        <!--</div>-->
+        <!--<select class="custom-select" name="type" [(ngModel)]="type" [ngModelOptions]="{standalone: true}">-->
+        <!--<option selected>Choose...</option>-->
+        <!--<option value="College">College</option>-->
+        <!--<option value="Hotel">Hotel</option>-->
+        <!--<option value="Theme Parks">Theme Parks</option>-->
+        <!--<option value="Car Dealers">Car Dealers</option>-->
+        <!--<option value="Airports">Airports</option>-->
+        <!--</select>-->
+        <!--</div>-->
+
+        <div class="form-group">
+          <div class="form-group">
+            <label>Email ID</label>
+            <input type="email" class="form-control" name="EmailID" placeholder="Email ID" [(ngModel)]="EmailID" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="Password" placeholder="Password" [(ngModel)]="Password" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addDriver()">Save</button>
+      </form>
+    </div>
+    <div class="col-md-8 table-responsive" style="height: fit-content;">
+      <h4 class="font-weight-bold text-uppercase">Drivers List</h4>
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email ID</th>
+          <th scope="col">User Type</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of driverDetails">
+          <td>{{data.Firstname}}</td>
+          <td>{{data.Lastname}}</td>
+          <td>{{data.EmailID}}</td>
+          <td>{{data.Usertype}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
