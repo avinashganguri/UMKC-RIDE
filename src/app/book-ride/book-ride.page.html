@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Book-Ride</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div padding *ngIf="ETA != ''">
+    <h3 style="color: black">ETA: {{ETA}}</h3>
+  </div>
+
+  <form [formGroup]="directionForm" *ngIf="ETA == ''" (ngSubmit)="calculateAndDisplayRoute(directionForm.value)">
+    <!--<ion-item>-->
+      <!--&lt;!&ndash;<ion-label position="floating">Source</ion-label>&ndash;&gt;-->
+      <!--<input type="text" #autoCompleteInput formControlName="source" placeholder="Source" autocomplete="true">-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--&lt;!&ndash;<ion-label position="floating">Destination</ion-label>&ndash;&gt;-->
+      <!--<input type="text" #autoCompleteDestination formControlName="destination" placeholder="Destination" autocomplete="true">-->
+    <!--</ion-item>-->
+    <ion-item>
+    <ion-select [(ngModel)]="source" formControlName="source" placeholder="Source">
+      <ion-select-option value="Kansas City International Airport" selected>Kansas City International Airport</ion-select-option>
+      <ion-select-option value="The Retreat at Walnut Creek, 1300 NE Parvin Rd, Kansas City, MO 64116">The Retreat at Walnut Creek, 1300 NE Parvin Rd, Kansas City, MO 64116</ion-select-option>
+      <ion-select-option value="University of Missouri-Kansas City: Volker Campus">University of Missouri-Kansas City: Volker Campus</ion-select-option>
+    </ion-select>
+  </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="destination" formControlName="destination"  placeholder="Destination">
+        <ion-select-option value="Kansas City International Airport" selected>Kansas City International Airport</ion-select-option>
+        <ion-select-option value="The Retreat at Walnut Creek, 1300 NE Parvin Rd, Kansas City, MO 64116">The Retreat at Walnut Creek, 1300 NE Parvin Rd, Kansas City, MO 64116</ion-select-option>
+        <ion-select-option value="University of Missouri-Kansas City: Volker Campus">University of Missouri-Kansas City: Volker Campus</ion-select-option>
+    </ion-select>
+    </ion-item>
+
+    <!--<ion-item>-->
+      <!--<ion-label>Destination Location</ion-label>-->
+      <!--<ion-select formControlName="destinationPlace" placeholder="Select One">-->
+        <!--<ion-select-option value="umkc">University of Missouri-Kansas City: Volker Campus, Holmes Street, Kansas City, MO, USA</ion-select-option>-->
+        <!--<ion-select-option value="airport">Airport, Kansas City, MO, USA</ion-select-option>-->
+      <!--</ion-select>-->
+    <!--</ion-item>-->
+
+    <!--<ion-button color="secondary" id="login" (click)="login()" expand ="full" color="light">Login</ion-button>-->
+
+    <ion-button expand="full" type="submit" [disabled]="directionForm.invalid">Book Ride</ion-button>
+
+    <!--<ion-button color="secondary" id="login" (click)="btnClicked()" expand ="full" color="light">ETA</ion-button>-->
+    <ion-button color="secondary" id="login" (click)="login()" expand ="full" color="light">ETA</ion-button>
+    <ion-button color="secondary"  expand ="full" color="light">{{greeting}}</ion-button>
+<!--    <button ion-button (click)="btnClicked()" expand ="full" color="light">ETA</button>-->
+
+    <!--<ion-button expand="full" type="submit"(click)="login()" [disabled]="directionForm.invalid">ETA</ion-button>-->
+  </form>
+
+  <div #mapElement class="map" id="map"></div>
+  <div id="infowindow-content">
+    <img src="" width="16" height="16" id="place-icon">
+    <span id="place-name"  class="title"></span><br>
+    <span id="place-address"></span>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "CourtesyShuttle",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
